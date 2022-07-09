@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Jobs')" />
+<body class="bg-slate-900">
+  <nav th:replace="fragments/navbar :: navbar" ></nav>
+  <div th:replace="fragments/header.html :: header('jobs')"></div>
+  <div th:if="${jobs.size() > 0}" class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+
+    <h3 class="text-white" th:text="${jobsType}"></h3>
+    <table class="mt-5 table-auto border-collapse border border-slate-500 text-slate-400"
+           th:with="cellStyle='border border-slate-700 py-2 pl-2 bg-slate-800'">
+      <tr class="text-left ">
+        <th th:class="${cellStyle}">ID</th>
+        <th th:class="${cellStyle}">Name</th>
+        <th th:class="${cellStyle}">Created At</th>
+        <th th:class="${cellStyle}">Target Completion Date</th>
+        <th th:class="${cellStyle}">Project Type</th>
+        <th th:class="${cellStyle}">Status</th>
+        <th th:class="${cellStyle}">Options</th>
+      </tr>
+      <tr th:each="job : ${jobs}" class="">
+        <td th:class="${cellStyle}" th:text="${job.id}"></td>
+        <td th:class="${cellStyle}" th:text="${job.name}"></td>
+        <td th:class="${cellStyle}" th:text="${job.createdAt}"></td>
+        <td th:class="${cellStyle}" th:text="${job.targetCompletionDate}"></td>
+        <td th:class="${cellStyle}" th:text="${job.projectType}"></td>
+        <td th:class="${cellStyle}" th:text="${job.isOpen ? 'Open' : 'Closed'}"></td>
+        <td th:class="${cellStyle}">
+          <div class="w-10/12 mx-auto flex justify-between items-center">
+            <a th:href="@{/admin/jobs/{id}/edit (id = ${job.id})}"><span th:replace="fragments/svgs.html :: edit"></span></a>
+            <a th:href="@{/admin/jobs/{id}/show (id = ${job.id})}"><span th:replace="fragments/svgs.html :: show"></span></a>
+            <a th:href="@{/admin/jobs/{id}/delete (id = ${job.id})}"><span th:replace="fragments/svgs.html :: delete"></span></a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<div th:if="${jobs.size() == 0}" class="text-white mx-auto text-center mt-10">
+  <p>There are no any jobs at the moment!</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Jobs')" />
+<body class="bg-slate-900">
+    <nav th:replace="fragments/navbar :: navbar" ></nav>
+    <div th:replace="fragments/header.html :: header('jobs')"></div>
+
+    <div class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+        <h3 class="text-white" th:text="${jobsType}"></h3>
+        <form action="/admin/jobs/create" method="post" th:object="${job}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
+            <label for="n">Name</label>
+            <input id="n" type="text" th:field="*{name}" class="p-2 bg-slate-700 rounded-md" required>
+            <label for="tcd" >Target Completion Date</label>
+            <input id="tcd" type="date" th:field="*{targetCompletionDate}" class="p-2 bg-slate-700 rounded-md" required>
+            <label for="pt">Project Type</label>
+            <select id="pt" th:field="*{projectType}"  class="p-2 bg-slate-700 rounded-md" required>
+                <option th:each="type : ${T(com.course.jobtracker.model.ProjectType).values()}"
+                        th:value="${type}" th:text="${type}"></option>
+            </select>
+            <input type="submit" value="Save" class="mt-4 p-2 bg-sky-600 text-center text-slate-300 rounded-md">
+        </form>
+    </div>
+
+</body>
+</html>

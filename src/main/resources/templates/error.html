@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Error')" />
+<body class="flex h-screen flex-col justify-center items-center">
+<h1 class="font-extrabold">Something went wrong! </h1>
+<h2 th:text="${errorMessage}"></h2>
+<a href="/" class="font-sm text-blue-500">Go Home</a>
+</body>
+</html>

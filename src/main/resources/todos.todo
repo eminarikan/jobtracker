@@ -1,0 +1,53 @@
+1 - Prepare Endpoints
+	
+		/jobtracker/
+		/jobtracker/login
+		/jobtracker/logout
+		/jobtracker/admin/jobs/
+		/jobtracker/admin/jobs/open
+		/jobtracker/admin/jobs/closed
+		/jobtracker/admin/jobs/create
+		/jobtracker/admin/jobs/{id}/
+		/jobtracker/admin/jobs/{id}/edit
+		/jobtracker/admin/jobs/{id}/show
+		/jobtracker/admin/jobs/{id}/delete
+		/jobtracker/admin/jobs/{id}/tasks
+		/jobtracker/admin/jobs/{id}/completed
+		/jobtracker/admin/jobs/{id}/open
+		/jobtracker/admin/employees/
+		/jobtracker/admin/employees/create
+		/jobtracker/admin/employees/{id}
+		/jobtracker/admin/employees/{id}/edit
+		/jobtracker/admin/employees/{id}/show
+		/jobtracker/admin/employees/{id}/delete
+		/jobtracker/admin/priorityLevels
+		/jobtracker/admin/priorityLevels/
+		/jobtracker/admin/priorityLevels/create
+		/jobtracker/admin/priorityLevels/{id}/								
+		/jobtracker/admin/priorityLevels/{id}/edit
+		/jobtracker/admin/priorityLevels/{id}/show
+		/jobtracker/admin/priorityLevels/{id}/delete
+		/jobtracker/admin/projectTypes/
+		/jobtracker/admin/projectTypes/create
+		/jobtracker/admin/projectTypes/{id}/
+		/jobtracker/admin/projectTypes/{id}/edit
+		/jobtracker/admin/projectTypes/{id}/show
+		/jobtracker/admin/projectTypes/{id}/delete
+		/jobtracker/employee/jobs/open
+		/jobtracker/employee/jobs/completed
+		/jobtracker/employee/jobs/{id}/tasks
+		/jobtracker/employee/jobs/{id}/tasks/create
+		/jobtracker/employee/jobs/{id}/tasks/{id}/
+		/jobtracker/employee/jobs/{id}/tasks/{id}/edit
+		/jobtracker/employee/jobs/{id}/tasks/{id}/show
+		/jobtracker/employee/jobs/{id}/tasks/{id}/delete
+	
+2 - Prepare Controllers
+		
+		
+3 - Prepare Views
+4 - Prepare Data Access Layer
+	4.1 - Models
+	4.2 - Repositories
+	4.3 - Services
+5 - Prepare Security 

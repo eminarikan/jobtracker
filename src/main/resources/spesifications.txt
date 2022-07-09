@@ -1,0 +1,100 @@
+﻿Job scope – PHP App, MySQL Database
+Job Tracker
+Overview
+This app will be used by a company to keep track of its jobs.
+
+The company works on multiple jobs at once.
+The company has multiple employees.
+Employees work on different jobs.
+Each job is broken down into various tasks.
+Some jobs have 1 few tasks, some jobs could have 200 tasks.
+
+As employees work on a task, these tasks need to be assigned to a specific job.
+This system will keep a record of all jobs, records all tasks done per job by a
+specific employee at a specific date
+--------------------------------
+1. The Admin will log in to the system and create jobs. Each job will have these fields:
+
+   * Job Name (Text input)
+   * Date Created  (Automatically selects today’s date)
+   * Project Type (Selection from drop down list)
+   * Target Completion Date (Calendar selector)
+
+Once a job is created it will appear in the View All Jobs grid. It will be accessible
+by all employees via this grid.
+
+The grid will list:
+
+“Job Name”
+“Date Created”
+“Project Type”
+“Target Completion Date”
+
+It will also have buttons:
+“Add Task” (Plus Icon)
+“View Tasks” (Magnifying Glass Icon)
+“Edit Task” – (Pencil Icon) (Only Admin can see this and access this)
+“Job Completed” – (Green Tick Icon) (Only Admin can see this and access this) –
+Once a job is completed, it must move from the “Open Jobs” grid to the “Completed Jobs” grid.
+
+      2. Each employee will need his own login. He will log in to the system and see the Jobs Menu.
+      The sub menu items he will see are: “View Open Jobs”, “Completed Jobs”
+
+The default view for when users log in will be the View Open Jobs grid.
+
+      3. The employee will then select a job from the grid. This will open a popup. This popup will show:
+
+“Job Name”
+“Date Created”
+“Project Type”
+“Target Completion Date”
+“Tasks” – This will show a list of all tasks that have been created by Employees.
+Tasks will be assigned numbers automatically staring from 1
+The next task created will have the number 2 etc
+Each job must allow an unlimited number of tasks.
+
+There also needs to be a button for “Add Task”
+
+The fields for each task are:
+“Task Input Date/Time” – Automatically generated. Will select the current date and time by default.
+Cannot be changed.
+
+“Input By” – Automatically selects the currently logged on Employee. Can only be edited by Admin.
+
+“Task Description” – Text field input by Employee. This cannot be changed by Employees once Saved.
+Can only be edited by Admin.
+
+“Target Date” – Calendar selector. Entered by Employee.
+
+“Priority Level” – Drop Down list. This is defined in “Settings” by the admin.
+
+“Project Type” – Must automatically show the Project type and colour as defined when the Job was created.
+This must show for each Task.
+
+Navigation menu items
+
+      4. Jobs (Visible to all users)
+         1. View Open Jobs (Visible to all users) – Must also have search criteria. Search by Job Name,
+         From Date, To Date, Task Description, Input By, Priority level, 				Project Type
+The search criteria must be above the grid.
+         2. Completed Jobs (Visible to all users)
+         3. Add New Job (Only Admin can see this and access this)
+The following must appear under “Settings” - (Only Admin can see this and access this)
+Settings will not appear for normal users.
+            5. Employees
+            1. View All Employees
+            2. Add New Employee
+
+               6. Priority Level
+               1. View Priority Levels
+               2. Add New Priority Level
+
+                  7. Project Types
+                  1. View Project Types
+                  2. Add Project Type (Each project type must be assigned a colour) This project type
+                  and colour must show on the grid.
+
+
+Once this projected is awarded to you, I require a mockup of the GUI.
+This design created MUST be cross browser compatible and MUST be responsive.
+The client uses, mac’s, windows and android tablets. This will need to work on all these browsers.

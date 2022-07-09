@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+<a      th:fragment="nbLink(endpoint, content)"
+        th:href="@{'/'+ ${endpoint}} "
+        th:class="${#strings.contains(#request.requestURI, endpoint)
+            ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+            : 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' }"
+        th:text="${content}"></a>
+</html>
