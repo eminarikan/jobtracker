@@ -1,17 +1,16 @@
 package com.course.jobtracker;
 
-import com.course.jobtracker.model.Constant;
-import com.course.jobtracker.model.Employee;
-import com.course.jobtracker.model.Job;
-import com.course.jobtracker.model.ProjectType;
+import com.course.jobtracker.model.*;
 import com.course.jobtracker.repository.EmployeeRepository;
 import com.course.jobtracker.repository.JobRepository;
+import com.course.jobtracker.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 public class DatabaseSeeder implements ApplicationRunner {
@@ -20,24 +19,27 @@ public class DatabaseSeeder implements ApplicationRunner {
 
     @Autowired
     private JobRepository jobRepository;
+    @Autowired
+    private TaskRepository taskRepository;
 
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        if (employeeRepository.findAll().size() == 0){
+
             Employee admin = new Employee();
             admin.setUsername("admin");
+            admin.setName("Admin1");
             admin.setPassword("123");
             admin.setRole(Constant.ADMIN);
 
             Employee employee = new Employee();
             employee.setUsername("user");
+            employee.setName("Employee1");
             employee.setPassword("123");
             employee.setRole(Constant.EMPLOYEE);
 
-            employeeRepository.save(admin);
-            employeeRepository.save(employee);
-        }
+
+
         Job j1 = new Job();
         j1.setName("Do some stuff");
         j1.setCreatedAt(LocalDate.now());
@@ -52,7 +54,20 @@ public class DatabaseSeeder implements ApplicationRunner {
         j2.setIsOpen(true);
         j2.setProjectType(ProjectType.TYPE_B);
 
+
+        Task t1 = new Task();
+        t1.setCreatedAt(LocalDateTime.now());
+        t1.setTargetCompletionDate(t1.getCreatedAt().plusDays(6));
+        t1.setDescription("This is a task");
+        t1.setJob(j2);
+        t1.setInputBy(employee);
+        t1.setPriorityLevel(PriorityLevel.HIGH);
+
+
+        employeeRepository.save(admin);
+        employeeRepository.save(employee);
         jobRepository.save(j1);
         jobRepository.save(j2);
+        taskRepository.save(t1);
     }
 }

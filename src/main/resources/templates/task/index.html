@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="indexTask(tasks)">
+  <div th:if="${tasks.size() > 0}" class="flex flex-col mx-auto justify-center mt-10 w-full" >
+
+    <h3 class="text-white" th:text="'Tasks'"></h3>
+
+    <table class="mt-5 table-auto border-collapse border border-slate-500 text-slate-400"
+           th:with="cellStyle='border border-slate-700 py-2 pl-2 bg-slate-800'">
+      <tr class="text-left ">
+        <th th:class="${cellStyle}">ID</th>
+        <th th:class="${cellStyle}">Description</th>
+        <th th:class="${cellStyle}">Created At</th>
+        <th th:class="${cellStyle}">Target Completion Date</th>
+        <th th:class="${cellStyle}">Job</th>
+        <th th:class="${cellStyle}">Status</th>
+        <th th:class="${cellStyle}">Input By</th>
+        <th th:class="${cellStyle}">Priority Level</th>
+        <th th:class="${cellStyle}">Options</th>
+      </tr>
+      <tr th:each="task : ${tasks}" class="">
+
+
+
+        <td th:class="${cellStyle}" th:text="${task.id}"></td>
+        <td th:class="${cellStyle}" th:text="${task.description}"></td>
+        <td th:class="${cellStyle}" th:text="${task.createdAt}"></td>
+        <td th:class="${cellStyle}" th:text="${task.targetCompletionDate}"></td>
+        <td th:class="${cellStyle}" th:text="${task.job.name}"></td>
+        <td th:class="${cellStyle}" th:text="${task.isCompleted ? 'Compeleted' : 'On Process'}"></td>
+        <td th:class="${cellStyle}" th:text="${task.inputBy.name}"></td>
+        <td th:class="${cellStyle}" th:text="${task.priorityLevel}"></td>
+        <td th:class="${cellStyle}">
+          <div class="w-10/12 mx-auto flex justify-between items-center">
+            <a th:href="@{/tasks/{id}/edit (id = ${task.id})}"  title="Edit Task">
+              <span th:replace="fragments/svgs.html :: edit"></span>
+            </a>
+            <a th:href="@{/tasks/{id}/show (id = ${task.id})}"  title="Task Details">
+              <span th:replace="fragments/svgs.html :: show"></span>
+            </a>
+            <a th:href="@{/tasks/{id}/delete (id = ${task.id})}"
+               onclick="return confirm('Are you sure you want to delete this job?');"
+               title="Delete Task">
+              <span th:replace="fragments/svgs.html :: delete"></span>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div th:if="${tasks.size() == 0}" class="text-white mx-auto text-center mt-10">
+    <p>There are no any tasks for this job at the moment!</p>
+  </div>
+</div>
+
+
+</html>

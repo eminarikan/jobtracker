@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IEmployeeService {
     Employee findByUsername(String username);
-
+    Employee findById(Long id);
 }

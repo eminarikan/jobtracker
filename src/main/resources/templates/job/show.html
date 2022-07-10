@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="showJob" class="flex flex-col mx-auto justify-center mt-10 w-8/12 text-slate-400" >
+<div th:fragment="showJob" class="flex flex-col mx-auto justify-center mt-10 w-full text-slate-400" >
   <h3 class="text-white" th:text="${jobsType}"></h3>
 
   <div class="w-10/12 mx-auto flex justify-end space-x-4 items-center">
@@ -34,6 +34,7 @@
       <span th:class="${data}" th:text="' ' + ${job.projectType}"></span>
     </span>
   </div>
+  <div th:replace="task/index.html :: indexTask(${job.tasks})"></div>
 </div>
 
 

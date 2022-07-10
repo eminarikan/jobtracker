@@ -16,7 +16,7 @@ public class Employee {
 
     private String role;
 
-    @OneToMany(mappedBy = "inputBy")
+    @OneToMany(mappedBy = "inputBy", cascade = CascadeType.ALL)
     private Collection<Task> tasks;
 
     public Long getId() {

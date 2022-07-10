@@ -21,18 +21,37 @@
 
 
         <td th:class="${cellStyle}" th:text="${job.id}"></td>
-        <td th:class="${cellStyle}" th:text="${job.name}"></td>
+        <td th:class="${cellStyle}">
+          <a
+                  th:href="@{/jobs/{id}/show (id = ${job.id})}"
+                  th:text="${job.name}"
+                  class="hover:text-white"></a>
+        </td>
         <td th:class="${cellStyle}" th:text="${job.createdAt}"></td>
         <td th:class="${cellStyle}" th:text="${job.targetCompletionDate}"></td>
         <td th:class="${cellStyle}" th:text="${job.projectType}"></td>
         <td th:class="${cellStyle}" th:text="${job.isOpen ? 'Open' : 'Closed'}"></td>
         <td th:class="${cellStyle}">
           <div class="w-10/12 mx-auto flex justify-between items-center">
-            <a th:href="@{/jobs/{id}/edit (id = ${job.id})}"  title="Edit Job">
+            <a
+                    th:href="@{/jobs/{id}/tasks/create (id = ${job.id})}"
+                    title="Add Task">
+              <span th:replace="fragments/svgs.html :: add"></span>
+            </a>
+            <a
+                    th:href="@{/jobs/{id}/edit (id = ${job.id})}"
+                    title="Edit Job">
               <span th:replace="fragments/svgs.html :: edit"></span>
             </a>
-            <a th:href="@{/jobs/{id}/show (id = ${job.id})}"  title="Job Details">
+            <a
+                    th:href="@{/jobs/{id}/show (id = ${job.id})}"
+                    title="View Tasks">
               <span th:replace="fragments/svgs.html :: show"></span>
+            </a>
+            <a
+                    th:href="@{/jobs/{id}/show (id = ${job.id})}"
+                    title="Mark Completed">
+              <span th:replace="fragments/svgs.html :: complete"></span>
             </a>
             <a th:href="@{/jobs/{id}/delete (id = ${job.id})}"
                onclick="return confirm('Are you sure you want to delete this job?');"

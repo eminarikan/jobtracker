@@ -19,7 +19,7 @@ public class Job {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate targetCompletionDate;
     private boolean isOpen = true;
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
     private List<Task> tasks = new java.util.ArrayList<>();
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;

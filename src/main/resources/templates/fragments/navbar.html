@@ -18,7 +18,6 @@
                             <div  sec:authorize="hasAuthority('ADMIN')">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a th:replace="fragments/navbarLink.html :: nbLink('jobs/', 'Jobs')"></a>
-                                <a th:replace="fragments/navbarLink.html :: nbLink('tasks/', 'Tasks')"></a>
                                 <a th:replace="fragments/navbarLink.html :: nbLink('employees/', 'Employees')"></a>
                                 <a th:replace="fragments/navbarLink.html :: nbLink('priorities/', 'Priority Levels')"></a>
                                 <a th:replace="fragments/navbarLink.html :: nbLink('types/', 'Project Types')"></a>

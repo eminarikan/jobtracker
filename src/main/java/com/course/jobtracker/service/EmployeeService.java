@@ -16,4 +16,9 @@ public class EmployeeService implements IEmployeeService{
     public Employee findByUsername(String username) {
         return repository.findByUsername(username);
     }
+
+    @Override
+    public Employee findById(Long id) {
+        return repository.findById(id).get();
+    }
 }

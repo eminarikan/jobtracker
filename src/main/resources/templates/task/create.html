@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div th:fragment="createTask" class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+        <h3 class="text-white" th:text="${tasksType}"></h3>
+        <form th:action="@{/jobs/{id}/tasks/create (id = ${jobId})}" method="post" th:object="${task}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
+            <label for="d" class="mt-2">Description</label>
+            <input id="d" type="text" th:field="*{description}" class="p-2 bg-slate-700 rounded-md" required>
+            <label for="tcd" class="mt-2">Target Completion Date</label>
+            <input id="tcd" type="datetime-local" th:field="*{targetCompletionDate}" class="p-2 bg-slate-700 rounded-md" required>
+            <label for="pl" class="mt-2">Priority Level</label>
+            <select id="pl" th:field="*{priorityLevel}"  class="p-2 bg-slate-700 rounded-md" required>
+                <option th:each="type : ${T(com.course.jobtracker.model.PriorityLevel).values()}"
+                        th:value="${type}" th:text="${type}"></option>
+            </select>
+            <input type="submit" value="Save" class="mt-4 p-2 bg-sky-600 text-center text-slate-300 rounded-md hover:font-bold hover:text-slate-100">
+        </form>
+    </div>
+
+
+</html>

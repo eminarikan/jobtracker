@@ -23,6 +23,14 @@
             <div th:replace="fragments/header.html :: header('jobs')"></div>
             <div th:replace="job/show.html :: showJob"></div>
         </div>
+        <div th:if="${#strings.equals(page, 'indexTask')}" th:class="${container}">
+            <div th:replace="fragments/header.html :: header('tasks')"></div>
+            <div th:replace="task/index.html :: indexTask"></div>
+        </div>
+        <div th:if="${#strings.equals(page, 'createTask')}" th:class="${container}">
+            <div th:replace="fragments/header.html :: header('tasks')"></div>
+            <div th:replace="task/create.html :: createTask"></div>
+        </div>
     </div>
 </body>
 </html>

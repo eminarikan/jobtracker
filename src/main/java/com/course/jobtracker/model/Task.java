@@ -1,5 +1,7 @@
 package com.course.jobtracker.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 @Entity
@@ -11,10 +13,11 @@ public class Task {
     private Long id;
     private String description;
     private LocalDateTime createdAt;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime targetCompletionDate;
     private boolean isCompleted;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn
     private Job job;
 
