@@ -21,16 +21,14 @@ public class Job {
     private boolean isOpen = true;
     @OneToMany(mappedBy = "job")
     private List<Task> tasks = new java.util.ArrayList<>();
-
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;
 
-
-    public boolean isOpen() {
+    public boolean getIsOpen() {
         return isOpen;
     }
 
-    public void setOpen(boolean open) {
+    public void setIsOpen(boolean open) {
         isOpen = open;
     }
     public Long getId() {

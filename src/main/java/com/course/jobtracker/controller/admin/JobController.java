@@ -5,10 +5,7 @@ import com.course.jobtracker.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -49,6 +46,29 @@ public class JobController {
     public String save(@ModelAttribute("job") Job job){
         job.setCreatedAt(LocalDate.now());
         jobService.save(job);
+        return "redirect:/admin/jobs/";
+    }
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable("id") Long id){
+        jobService.delete(jobService.findById(id));
+        return "redirect:/admin/jobs/";
+    }
+
+    @GetMapping("/{id}/show")
+    public String show(@PathVariable("id") Long id, ModelMap model){
+        model.addAttribute("job", jobService.findById(id));
+        model.addAttribute("jobsType", "Job Detail");
+        return "admin/jobDetail";
+    }
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable("id") Long id, ModelMap model){
+        model.addAttribute("job", jobService.findById(id));
+        model.addAttribute("jobsType", "Edit Job");
+        return "admin/editJob";
+    }
+    @PostMapping("/{id}/edit")
+    public String update(@ModelAttribute("job") Job job){
+        jobService.update(job);
         return "redirect:/admin/jobs/";
     }
 }

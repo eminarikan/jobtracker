@@ -9,4 +9,7 @@ public interface IJobService {
     List<Job> findAllOpenJobs();
     List<Job> findAllClosedJobs();
     void save(Job job);
+    void delete(Job job);
+    Job findById(Long id);
+    void update(Job job);
 }

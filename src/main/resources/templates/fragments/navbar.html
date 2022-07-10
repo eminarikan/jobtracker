@@ -1,5 +1,5 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring5-3.dtd">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <nav th:fragment="navbar" class="bg-slate-800">
 
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -15,7 +15,7 @@
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
 
-                            <div sec:authorize="hasAuthority('ADMIN')">
+                            <div  sec:authorize="hasAuthority('ADMIN')">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a th:replace="fragments/navbarLink.html :: nbLink('admin/jobs/', 'Jobs')"></a>
                                 <a th:replace="fragments/navbarLink.html :: nbLink('admin/employees', 'Employees')"></a>

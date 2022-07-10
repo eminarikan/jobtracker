@@ -31,4 +31,19 @@ public class JobService implements IJobService {
     public void save(Job job) {
         jobRepository.save(job);
     }
+
+    @Override
+    public void delete(Job job) {
+        jobRepository.delete(job);
+    }
+
+    @Override
+    public Job findById(Long id) {
+        return jobRepository.findById(id).get();
+    }
+
+    @Override
+    public void update(Job job) {
+        jobRepository.save(job);
+    }
 }

@@ -42,14 +42,14 @@ public class DatabaseSeeder implements ApplicationRunner {
         j1.setName("Do some stuff");
         j1.setCreatedAt(LocalDate.now());
         j1.setTargetCompletionDate(LocalDate.now().plusDays(5));
-        j1.setOpen(false);
+        j1.setIsOpen(false);
         j1.setProjectType(ProjectType.TYPE_A);
 
         Job j2 = new Job();
         j2.setName("Do some other stuff");
         j2.setCreatedAt(LocalDate.now());
         j2.setTargetCompletionDate(LocalDate.now().plusDays(10));
-        j2.setOpen(true);
+        j2.setIsOpen(true);
         j2.setProjectType(ProjectType.TYPE_B);
 
         jobRepository.save(j1);

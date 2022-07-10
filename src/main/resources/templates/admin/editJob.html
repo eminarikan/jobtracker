@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Jobs')" />
+<body class="bg-slate-900">
+<nav th:replace="fragments/navbar :: navbar" ></nav>
+<div th:replace="fragments/header.html :: header('jobs')"></div>
+
+<div class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+    <h3 class="text-white" th:text="${jobsType}"></h3>
+    <form th:action="@{/admin/jobs/{id}/edit (id = ${job.id})}" method="post" th:object="${job}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
+        <label for="i" class="mt-2">ID</label>
+        <input id="i" type="number" th:field="*{id}" class="p-2 bg-slate-700 rounded-md" required>
+        <label for="n" class="mt-2">Name</label>
+        <input id="n" type="text" th:field="*{name}" class="p-2 bg-slate-700 rounded-md" required>
+        <label for="ca" class="mt-2">Created At</label>
+        <input id="ca" type="date" th:field="*{createdAt}" class="p-2 bg-slate-700 rounded-md" required>
+        <label for="tcd" class="mt-2">Target Completion Date</label>
+        <input id="tcd" type="date" th:field="*{targetCompletionDate}" class="p-2 bg-slate-700 rounded-md" required>
+        <label for="pt" class="mt-2">Project Type</label>
+        <select id="pt" th:field="*{projectType}"  class="p-2 bg-slate-700 rounded-md" required>
+            <option th:each="type : ${T(com.course.jobtracker.model.ProjectType).values()}"
+                    th:value="${type}" th:text="${type}"></option>
+        </select>
+        <label for="io" class="mt-2">Open</label>
+        <input id="io" type="checkbox" class="p-2 h-6 w-6 bg-slate-700 rounded-md" th:field="*{isOpen}">
+        <input type="submit" value="Update" class="mt-4 p-2 bg-sky-600 text-center text-slate-300 rounded-md">
+    </form>
+</div>
+
+</body>
+</html>
