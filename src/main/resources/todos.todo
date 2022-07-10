@@ -3,44 +3,46 @@
 		/jobtracker/
 		/jobtracker/login
 		/jobtracker/logout
-		/jobtracker/admin/jobs/
-		/jobtracker/admin/jobs/open
-		/jobtracker/admin/jobs/closed
-		/jobtracker/admin/jobs/create
-		/jobtracker/admin/jobs/{id}/
-		/jobtracker/admin/jobs/{id}/edit
-		/jobtracker/admin/jobs/{id}/show
-		/jobtracker/admin/jobs/{id}/delete
-		/jobtracker/admin/jobs/{id}/tasks
-		/jobtracker/admin/jobs/{id}/completed
-		/jobtracker/admin/jobs/{id}/open
-		/jobtracker/admin/employees/
-		/jobtracker/admin/employees/create
-		/jobtracker/admin/employees/{id}
-		/jobtracker/admin/employees/{id}/edit
-		/jobtracker/admin/employees/{id}/show
-		/jobtracker/admin/employees/{id}/delete
-		/jobtracker/admin/priorityLevels
-		/jobtracker/admin/priorityLevels/
-		/jobtracker/admin/priorityLevels/create
-		/jobtracker/admin/priorityLevels/{id}/								
-		/jobtracker/admin/priorityLevels/{id}/edit
-		/jobtracker/admin/priorityLevels/{id}/show
-		/jobtracker/admin/priorityLevels/{id}/delete
-		/jobtracker/admin/projectTypes/
-		/jobtracker/admin/projectTypes/create
-		/jobtracker/admin/projectTypes/{id}/
-		/jobtracker/admin/projectTypes/{id}/edit
-		/jobtracker/admin/projectTypes/{id}/show
-		/jobtracker/admin/projectTypes/{id}/delete
-		/jobtracker/employee/jobs/open
-		/jobtracker/employee/jobs/completed
-		/jobtracker/employee/jobs/{id}/tasks
-		/jobtracker/employee/jobs/{id}/tasks/create
-		/jobtracker/employee/jobs/{id}/tasks/{id}/
-		/jobtracker/employee/jobs/{id}/tasks/{id}/edit
-		/jobtracker/employee/jobs/{id}/tasks/{id}/show
-		/jobtracker/employee/jobs/{id}/tasks/{id}/delete
+		/jobtracker/error
+		/jobtracker/jobs/
+		/jobtracker/jobs/open
+		/jobtracker/jobs/closed
+		/jobtracker/jobs/create
+		/jobtracker/jobs/{id}/
+		/jobtracker/jobs/{id}/edit
+		/jobtracker/jobs/{id}/show
+		/jobtracker/jobs/{id}/delete
+		/jobtracker/jobs/{id}/tasks
+
+		/jobtracker/tasks/
+        /jobtracker/tasks/create
+        /jobtracker/tasks/{id}/
+        /jobtracker/tasks/{id}/edit
+        /jobtracker/tasks/{id}/show
+        /jobtracker/tasks/{id}/delete
+        /jobtracker/tasks/{id}/tasks
+
+		/jobtracker/employees/
+		/jobtracker/employees/create
+		/jobtracker/employees/{id}
+		/jobtracker/employees/{id}/edit
+		/jobtracker/employees/{id}/show
+		/jobtracker/employees/{id}/delete
+
+		/jobtracker/priorityLevels/
+		/jobtracker/priorityLevels/create
+		/jobtracker/priorityLevels/{id}/
+		/jobtracker/priorityLevels/{id}/edit
+		/jobtracker/priorityLevels/{id}/show
+		/jobtracker/priorityLevels/{id}/delete
+
+		/jobtracker/projectTypes/
+		/jobtracker/projectTypes/create
+		/jobtracker/projectTypes/{id}/
+		/jobtracker/projectTypes/{id}/edit
+		/jobtracker/projectTypes/{id}/show
+		/jobtracker/projectTypes/{id}/delete
+
 	
 2 - Prepare Controllers
 		

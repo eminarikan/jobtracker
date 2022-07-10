@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Hoşgeldiniz')" />
+<body class="bg-slate-900">
+    <nav th:replace="fragments/navbar :: navbar" ></nav>
+    <div class="w-full mx-auto flex justify-center h-screen" th:with="container = 'flex flex-col w-8/12 justify-start'">
+        <div th:if="${#strings.equals(page, 'home')}" th:class="${container}" >
+            <p class="text-white font-extrabold">Welcome To the JobTracker App</p>
+        </div>
+        <div th:if="${#strings.equals(page, 'createJob')}" th:class="${container}">
+            <div th:replace="fragments/header.html :: header('jobs')"></div>
+            <div th:replace="job/create.html :: createJob"></div>
+        </div>
+        <div th:if="${#strings.equals(page, 'editJob')}" th:class="${container}">
+            <div th:replace="fragments/header.html :: header('jobs')"></div>
+            <div th:replace="job/edit.html :: editJob"></div>
+        </div>
+        <div th:if="${#strings.equals(page, 'indexJob')}" th:class="${container}">
+            <div th:replace="fragments/header.html :: header('jobs')"></div>
+            <div th:replace="job/index.html :: indexJob"></div>
+        </div>
+        <div th:if="${#strings.equals(page, 'showJob')}" th:class="${container}">
+            <div th:replace="fragments/header.html :: header('jobs')"></div>
+            <div th:replace="job/show.html :: showJob"></div>
+        </div>
+    </div>
+</body>
+</html>

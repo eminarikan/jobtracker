@@ -6,12 +6,12 @@
        th:with="linkStyle=' text-slate-400 hover:text-white mr-2'">
       <div th:if="${#strings.equals(page, 'jobs')}" class="w-full flex justify-between">
           <div>
-              <a href="/admin/jobs/" th:class="${linkStyle}">All Jobs</a>
-              <a href="/admin/jobs/open" th:class="${linkStyle}">Open Jobs</a>
-              <a href="/admin/jobs/closed" th:class="${linkStyle}">Closed Jobs</a>
+              <a href="/jobs/" th:class="${linkStyle}">All Jobs</a>
+              <a href="/jobs/open" th:class="${linkStyle}">Open Jobs</a>
+              <a href="/jobs/closed" th:class="${linkStyle}">Closed Jobs</a>
           </div>
           <div>
-              <a href="/admin/jobs/create" th:class="${linkStyle}">New Job</a>
+              <a href="/jobs/create" th:class="${linkStyle}">New Job</a>
           </div>
       </div>
   </div>

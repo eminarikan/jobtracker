@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Jobs')" />
-<body class="bg-slate-900">
-<nav th:replace="fragments/navbar :: navbar" ></nav>
-<div th:replace="fragments/header.html :: header('jobs')"></div>
 
-<div class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+
+<div th:fragment="editJob" class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
     <h3 class="text-white" th:text="${jobsType}"></h3>
-    <form th:action="@{/admin/jobs/{id}/edit (id = ${job.id})}" method="post" th:object="${job}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
+    <form th:action="@{/jobs/{id}/edit (id = ${job.id})}" method="post" th:object="${job}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
         <label for="i" class="mt-2">ID</label>
         <input id="i" type="number" th:field="*{id}" class="p-2 bg-slate-700 rounded-md" required>
         <label for="n" class="mt-2">Name</label>
@@ -23,9 +20,8 @@
         </select>
         <label for="io" class="mt-2">Open</label>
         <input id="io" type="checkbox" class="p-2 h-6 w-6 bg-slate-700 rounded-md" th:field="*{isOpen}">
-        <input type="submit" value="Update" class="mt-4 p-2 bg-sky-600 text-center text-slate-300 rounded-md">
+        <input type="submit" value="Update" class="mt-4 p-2 bg-sky-600 text-center text-slate-300 rounded-md hover:font-bold hover:text-slate-100">
     </form>
 </div>
 
-</body>
 </html>

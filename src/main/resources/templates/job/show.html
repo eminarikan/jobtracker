@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="showJob" class="flex flex-col mx-auto justify-center mt-10 w-8/12 text-slate-400" >
+  <h3 class="text-white" th:text="${jobsType}"></h3>
+
+  <div class="w-10/12 mx-auto flex justify-end space-x-4 items-center">
+    <a th:href="@{/jobs/{id}/tasks/create (id = ${job.id})}" title="Add Task">
+      <span th:replace="fragments/svgs.html :: add"></span>
+    </a>
+    <a th:href="@{/jobs/{id}/edit (id = ${job.id})}" title="Edit Job">
+      <span th:replace="fragments/svgs.html :: edit"></span>
+    </a>
+    <a th:href="@{/jobs/{id}/delete (id = ${job.id})}" title="Delete Job"
+       onclick="return confirm('Are you sure you want to delete this job?');" >
+      <span th:replace="fragments/svgs.html :: delete"></span>
+    </a>
+  </div>
+  <div class="flex mx-auto justify-between w-full mt-4" th:with="heads='text-sm', data='text-lg text-slate-300'">
+    <span th:class="${heads}">id:
+      <span th:class="${data}" th:text="' ' + ${job.id}"></span>
+    </span>
+    <span th:class="${heads}">name:
+      <span th:class="${data}" th:text="' ' + ${job.name}"></span>
+    </span>
+    <span th:class="${heads}">created at:
+      <span th:class="${data}" th:text="' ' + ${#temporals.format(job.createdAt, 'dd/MM/yyyy')}"></span>
+    </span>
+    <span th:class="${heads}">target completion date:
+      <span th:class="${data}" th:text="' ' + ${#temporals.format(job.targetCompletionDate, 'dd/MM/yyyy')}"></span>
+    </span>
+    <span th:class="${heads}">project type:
+      <span th:class="${data}" th:text="' ' + ${job.projectType}"></span>
+    </span>
+  </div>
+</div>
+
+
+</html>

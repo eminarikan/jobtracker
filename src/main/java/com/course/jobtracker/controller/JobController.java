@@ -1,4 +1,4 @@
-package com.course.jobtracker.controller.admin;
+package com.course.jobtracker.controller;
 
 import com.course.jobtracker.model.Job;
 import com.course.jobtracker.service.JobService;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 @Controller
-@RequestMapping(path = "/admin/jobs")
+@RequestMapping(path = "/jobs")
 public class JobController {
 
     @Autowired
@@ -20,55 +20,62 @@ public class JobController {
     public String index(ModelMap model){
         model.addAttribute("jobs", jobService.findAll());
         model.addAttribute("jobsType", "All Jobs");
-        return "admin/jobsIndex";
+        model.addAttribute("page", "indexJob");
+        return "app";
     }
     @GetMapping("/open")
     public String openJobs(ModelMap model){
         model.addAttribute("jobs", jobService.findAllOpenJobs());
         model.addAttribute("jobsType", "Open Jobs");
-        return "admin/jobsIndex";
+        model.addAttribute("page", "indexJob");
+        return "app";
     }
     @GetMapping("/closed")
     public String closedJobs(ModelMap model){
         model.addAttribute("jobs", jobService.findAllClosedJobs());
         model.addAttribute("jobsType", "Closed Jobs");
-        return "admin/jobsIndex";
+        model.addAttribute("page", "indexJob");
+        return "app";
     }
 
     @GetMapping("/create")
     public String create(ModelMap model){
         model.addAttribute("job", new Job());
         model.addAttribute("jobsType", "Add a Job");
-        return "admin/createJob";
+        model.addAttribute("page", "createJob");
+        return "app";
     }
 
     @PostMapping("/create")
     public String save(@ModelAttribute("job") Job job){
         job.setCreatedAt(LocalDate.now());
         jobService.save(job);
-        return "redirect:/admin/jobs/";
+        return "redirect:/jobs/";
     }
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable("id") Long id){
         jobService.delete(jobService.findById(id));
-        return "redirect:/admin/jobs/";
+        return "redirect:/jobs/";
     }
 
     @GetMapping("/{id}/show")
     public String show(@PathVariable("id") Long id, ModelMap model){
         model.addAttribute("job", jobService.findById(id));
         model.addAttribute("jobsType", "Job Detail");
-        return "admin/jobDetail";
+        model.addAttribute("page", "showJob");
+        return "app";
     }
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") Long id, ModelMap model){
         model.addAttribute("job", jobService.findById(id));
         model.addAttribute("jobsType", "Edit Job");
-        return "admin/editJob";
+        model.addAttribute("page", "editJob");
+        return "app";
     }
     @PostMapping("/{id}/edit")
     public String update(@ModelAttribute("job") Job job){
         jobService.update(job);
-        return "redirect:/admin/jobs/";
+        return "redirect:/jobs/";
     }
+
 }

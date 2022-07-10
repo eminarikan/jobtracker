@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Jobs')" />
-<body class="bg-slate-900">
-  <nav th:replace="fragments/navbar :: navbar" ></nav>
-  <div th:replace="fragments/header.html :: header('jobs')"></div>
-  <div th:if="${jobs.size() > 0}" class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+<div th:fragment="indexJob">
+  <div th:if="${jobs.size() > 0}" class="flex flex-col mx-auto justify-center mt-10 w-full" >
 
     <h3 class="text-white" th:text="${jobsType}"></h3>
 
@@ -31,17 +28,27 @@
         <td th:class="${cellStyle}" th:text="${job.isOpen ? 'Open' : 'Closed'}"></td>
         <td th:class="${cellStyle}">
           <div class="w-10/12 mx-auto flex justify-between items-center">
-            <a th:href="@{/admin/jobs/{id}/edit (id = ${job.id})}"><span th:replace="fragments/svgs.html :: edit"></span></a>
-            <a th:href="@{/admin/jobs/{id}/show (id = ${job.id})}"><span th:replace="fragments/svgs.html :: show"></span></a>
-            <a th:href="@{/admin/jobs/{id}/delete (id = ${job.id})}" onclick="return confirm('Are you sure you want to delete this job?');" ><span th:replace="fragments/svgs.html :: delete"></span></a>
+            <a th:href="@{/jobs/{id}/edit (id = ${job.id})}"  title="Edit Job">
+              <span th:replace="fragments/svgs.html :: edit"></span>
+            </a>
+            <a th:href="@{/jobs/{id}/show (id = ${job.id})}"  title="Job Details">
+              <span th:replace="fragments/svgs.html :: show"></span>
+            </a>
+            <a th:href="@{/jobs/{id}/delete (id = ${job.id})}"
+               onclick="return confirm('Are you sure you want to delete this job?');"
+               title="Delete Job">
+              <span th:replace="fragments/svgs.html :: delete"></span>
+            </a>
           </div>
         </td>
       </tr>
     </table>
   </div>
 
-<div th:if="${jobs.size() == 0}" class="text-white mx-auto text-center mt-10">
-  <p>There are no any jobs at the moment!</p>
+  <div th:if="${jobs.size() == 0}" class="text-white mx-auto text-center mt-10">
+    <p>There are no any jobs at the moment!</p>
+  </div>
 </div>
-</body>
+
+
 </html>
