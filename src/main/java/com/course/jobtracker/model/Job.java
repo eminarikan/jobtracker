@@ -20,7 +20,7 @@ public class Job {
     private LocalDate targetCompletionDate;
     private boolean isOpen = true;
     @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
-    private List<Task> tasks = new java.util.ArrayList<>();
+    private List<Task> tasks;
     @Enumerated(EnumType.STRING)
     private ProjectType projectType;
 

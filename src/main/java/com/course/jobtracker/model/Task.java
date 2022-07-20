@@ -18,7 +18,6 @@ public class Task {
     private boolean isCompleted;
 
     @ManyToOne
-    @JoinColumn
     private Job job;
 
     @ManyToOne
@@ -26,37 +25,32 @@ public class Task {
 
     @Enumerated(EnumType.STRING)
     private PriorityLevel priorityLevel;
+
+
     public boolean isCompleted() {
         return isCompleted;
     }
-
     public void setCompleted(boolean completed) {
         isCompleted = completed;
     }
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
     public LocalDateTime getTargetCompletionDate() {
         return targetCompletionDate;
     }

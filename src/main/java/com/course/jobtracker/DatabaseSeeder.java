@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DatabaseSeeder implements ApplicationRunner {
@@ -63,11 +65,22 @@ public class DatabaseSeeder implements ApplicationRunner {
         t1.setInputBy(employee);
         t1.setPriorityLevel(PriorityLevel.HIGH);
 
+        List<Task> tasks = new ArrayList<Task>();
+        tasks.add(t1);
+        j2.setTasks(tasks);
+
+        Task t2 = new Task();
+        t2.setCreatedAt(LocalDateTime.now());
+        t2.setTargetCompletionDate(t2.getCreatedAt().plusDays(6));
+        t2.setDescription("This is a task");
+        t2.setJob(j2);
+        t2.setInputBy(employee);
+        t2.setPriorityLevel(PriorityLevel.HIGH);
+
 
         employeeRepository.save(admin);
         employeeRepository.save(employee);
         jobRepository.save(j1);
         jobRepository.save(j2);
-        taskRepository.save(t1);
     }
 }
