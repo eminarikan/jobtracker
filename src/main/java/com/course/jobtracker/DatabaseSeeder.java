@@ -69,14 +69,6 @@ public class DatabaseSeeder implements ApplicationRunner {
         tasks.add(t1);
         j2.setTasks(tasks);
 
-        Task t2 = new Task();
-        t2.setCreatedAt(LocalDateTime.now());
-        t2.setTargetCompletionDate(t2.getCreatedAt().plusDays(6));
-        t2.setDescription("This is a task");
-        t2.setJob(j2);
-        t2.setInputBy(employee);
-        t2.setPriorityLevel(PriorityLevel.HIGH);
-
 
         employeeRepository.save(admin);
         employeeRepository.save(employee);

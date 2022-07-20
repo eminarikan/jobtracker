@@ -1,6 +1,7 @@
 package com.course.jobtracker.controller;
 
 import com.course.jobtracker.model.Employee;
+import com.course.jobtracker.model.Job;
 import com.course.jobtracker.model.MyUserDetails;
 import com.course.jobtracker.model.Task;
 import com.course.jobtracker.service.EmployeeService;
@@ -45,8 +46,11 @@ public class TaskController {
         task.setCreatedAt(LocalDateTime.now());
         MyUserDetails user = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         task.setInputBy(employeeService.findById(user.getId()));
-        task.setJob(jobService.findById(jobId));
-        taskService.save(task);
+        Job job =  jobService.findById(jobId);
+        task.setJob(job);
+        task.setId(0L);
+        job.getTasks().add(task);
+        jobService.save(job);
         return "redirect:/jobs/"+jobId+"/show";
     }
 }
