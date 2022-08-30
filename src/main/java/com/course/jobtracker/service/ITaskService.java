@@ -9,4 +9,6 @@ public interface ITaskService {
     List<Task> findAll();
     List<Task> findByJob(Job job);
     void save(Task task);
+    Task findById(Long id);
+    void delete(Task task);
 }

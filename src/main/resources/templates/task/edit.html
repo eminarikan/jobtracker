@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="editJob" class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
-    <h3 class="text-white" th:text="${jobsType}"></h3>
-    <form th:action="@{/jobs/{id}/edit (id = ${job.id})}" method="post" th:object="${job}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
+<div th:fragment="editTask" class="flex flex-col mx-auto justify-center mt-10 w-8/12" >
+    <h3 class="text-white" th:text="${tasksType}"></h3>
+    <form th:action="@{/jobs/{id}/edit (id = ${job.id})}" method="post" th:object="${task}" class="flex flex-col w-8/12 text-slate-400 mx-auto">
         <label for="i" class="mt-2">ID</label>
         <input id="i" type="number" th:field="*{id}" class="p-2 bg-slate-700 rounded-md" required>
-        <label for="n" class="mt-2">Name</label>
+        <label for="n" class="mt-2">Description</label>
         <input id="n" type="text" th:field="*{name}" class="p-2 bg-slate-700 rounded-md" required>
         <label for="ca" class="mt-2">Created At</label>
         <input id="ca" type="date" th:field="*{createdAt}" class="p-2 bg-slate-700 rounded-md" required>

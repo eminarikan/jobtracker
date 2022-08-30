@@ -53,4 +53,14 @@ public class TaskController {
         jobService.save(job);
         return "redirect:/jobs/"+jobId+"/show";
     }
+
+    @GetMapping("/{taskId}/delete")
+    public String delete(
+            @PathVariable("id") Long jobId,
+            @PathVariable("taskId") Long taskId
+    ){
+        Task task = taskService.findById(taskId);
+        taskService.delete(task);
+        return "redirect:/jobs/"+jobId+"/show";
+    }
 }
